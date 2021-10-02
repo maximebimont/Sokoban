@@ -1,0 +1,85 @@
+           -= Sokoban =-
+
+    ##########
+    #        #
+    #  $   @ #
+    #    #   #
+    #  .     #
+    #        #
+    ##########
+
+    ==========================
+    Bauduin Yannick - Groupe D
+     Bimont Maxime - Groupe C
+    ==========================
+
+    ## Présentation de Sokoban
+
+- Le sokoban est un jeu de déménagement, le but est pour vous (@)
+de déplacer des caisses ($) vers les (.)
+- Le jeu s'arrête quand toutes les caisses sont rangées, et votre
+score est calculé en fonction du nombre de mouvements effectués.
+- Plus le score est bas, mieux il est !
+
+    ## Utilisation du Sokoban
+
+Afin d'utiliser à bien le programme, placez vous à l'intérieur du
+dossier (cd yannick.bauduin.maxime.bimont.zip) et effectuez un make.
+
+Celui ci déclenchera un makefile qui mettra a jour la liste des fichiers
+compris dans le dossier niveaux, utiles notamment dans la présentation
+des niveaux de jeu disponibles en début de partie.
+
+|| Pour exécuter le programme :
+||
+|| ./sokoban
+||
+||==========
+||
+|| Contrôles :
+||
+||      Z             R
+||     QSD       Recommencer
+|| Déplacement    le niveau
+
+    ###Problèmes rencontrés :
+
+- EXO1 : 
+niveau_t* lecture_du_niveau(int quel_niveau);
+Lors de la lecture du niveau, différentes manipulations "hasardeuse" ont
+mené le programme vers une certaine magie noire.. nous forçant à démarrer
+notre compteur à -1.. ou à forcer l'incrémentation des boucles à la
+length+1.. Le résultat est là.. ou presque. Le niveau 0 possède 1 '#' en moins
+sur la premiere 
+ligne.
+
+- EXO2 : 
+void deplacement (niveau_t* niveau,char entree);
+point_t* récupère un char temporaire en + en raison du charactère qui
+doit remplacer le joueur une fois le déplacement effectué. Cependant.. lorsqu'on
+se déplace d'une case vide, en poussant une caisse (*) vers un rangement (.), on
+pose du vide ( ). Hors si nous arrivons sur un (.) ça pose soucis car celui ci
+disparait. C'est probablement dû à notre variable temporaire, mais le problème
+n'a pas pu être corrigé.
+
+- EXO 3 :
+Pas de difficultés rencontrées.
+
+- EXO 4 :
+Rajout d'une fonction qui dit "Win!"
+int lecture_du_score (int quel_niveau); / void ecriture_du_score (int quel_niveau,int score);
+Quelques difficultés pour lire et écire dans les fichiers .txt avec les différents "%?".
+
+- EXO 5 :
+char* nom_du_joueur (void);
+Beaucoup de réflexion sur une méthode d'imbrication de tableau dans un tableau de pointeur pour 
+finalement juste un simple pointeur.
+void ecriture_du_score_multi(int quel_niveau,int score);
+On a essayé la sauvegarde de niveau mais finalement nous n'avons qu'un seul score affiché.
+
+- EXO 6 :
+Manque de temps et des cafouillage sur la structure de l'historique.
+
+- EXO 7 :
+Pendant le projet nous avons, naturellement et pour faciliter nos tests, créer un menu ainsi qu'une 
+touche qui permet de Recommencer le niveau.
